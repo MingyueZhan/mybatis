@@ -1,0 +1,17 @@
+UPDATE 表名
+        <trim prefix="set" suffixOverrides=",">
+       
+            <trim prefix=" 字段名iskey= case " suffix="end,">
+                <foreach collection="集合对象vms" item="临时变量vm">
+                    <if test="vm.属性值 != null ">
+                        when id= #{
+id值} then #{要修改的字段值vm.iskey}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        <where>
+            <foreach collection="集合对象vms" item="临时变量vm" separator="or">
+                id = #{id值vm.id}
+            </foreach>
+        </where>
